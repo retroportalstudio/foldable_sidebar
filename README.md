@@ -12,6 +12,7 @@ An easy to implement Foldable Sidebar Navigation Drawer for Flutter Applications
 ## Usage
 To Use, simply add FoldableSidebarBuilder to your Scaffold's body, as follows:
 ```
+      child: Scaffold(
       body: FoldableSidebarBuilder(
                 drawerBackgroundColor: Colors.deepOrange,
                 drawer: CustomDrawer(closeDrawer: (){
@@ -32,6 +33,7 @@ To Use, simply add FoldableSidebarBuilder to your Scaffold's body, as follows:
                     });
                   }),
             ),
+           ),
 ```
 Important Enums:
 ```

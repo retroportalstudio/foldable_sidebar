@@ -1,7 +1,7 @@
 name: foldable_sidebar
 description: An easy to use Package for adding Foldable Flutter Navigation Sidebar to your Flutter Application.
 version: 1.0.0
-homepage:
+homepage: https://github.com/retroportalstudio/foldable_sidebar.git
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
