@@ -9,11 +9,17 @@ enum FSBStatus {
 
 class FoldableSidebarBuilder extends StatelessWidget {
   final FSBStatus status;
-  final Color drawerBackgroundColor;
+  final Color? drawerBackgroundColor;
   final Widget drawer;
   final Widget screenContents;
 
-  const FoldableSidebarBuilder({Key key, @required this.status, @required this.drawer, @required this.screenContents, this.drawerBackgroundColor}) : super(key: key);
+  const FoldableSidebarBuilder(
+      {Key? key,
+      required this.status,
+      required this.drawer,
+      required this.screenContents,
+      this.drawerBackgroundColor})
+      : super(key: key);
 
   Tween<double> getTween() {
     switch (status) {
@@ -28,7 +34,7 @@ class FoldableSidebarBuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context,constraints) {
+    return LayoutBuilder(builder: (context, constraints) {
       return TweenAnimationBuilder<double>(
           curve: Curves.fastOutSlowIn,
           tween: getTween(),
@@ -68,7 +74,8 @@ class FoldableSidebarBuilder extends StatelessWidget {
                                     ..setEntry(3, 0, perspective)
                                     ..rotateY(portionAngle),
                                   alignment: Alignment.centerLeft,
-                                  child: AbsorbPointer(absorbing: true, child: drawerContainer)),
+                                  child: AbsorbPointer(
+                                      absorbing: true, child: drawerContainer)),
                             ),
                           ),
                         ),
@@ -84,7 +91,8 @@ class FoldableSidebarBuilder extends StatelessWidget {
                                     ..setEntry(3, 0, -perspective)
                                     ..rotateY(portionAngle),
                                   alignment: Alignment.centerRight,
-                                  child: AbsorbPointer(absorbing: true, child: drawerContainer)),
+                                  child: AbsorbPointer(
+                                      absorbing: true, child: drawerContainer)),
                             ),
                           ),
                         ),
@@ -94,9 +102,12 @@ class FoldableSidebarBuilder extends StatelessWidget {
                               top: height * 0.25,
                               left: drawerWidth / 2,
                               child: Opacity(
-                                opacity: 1-data,
+                                opacity: 1 - data,
                                 child: Container(
-                                  decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.black, blurRadius: 10)]),
+                                  decoration: BoxDecoration(boxShadow: [
+                                    BoxShadow(
+                                        color: Colors.black, blurRadius: 10)
+                                  ]),
                                   width: 2,
                                   height: height * 0.75,
                                 ),
